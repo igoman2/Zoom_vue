@@ -1,8 +1,8 @@
-# frontend
+# yalliyalli-admin
 
 ## Project setup
 ```
-npm install
+npm install or npm i
 ```
 
 ### Compiles and hot-reloads for development
@@ -15,9 +15,9 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run your unit tests
 ```
-npm run test
+npm run test:unit
 ```
 
 ### Lints and fixes files

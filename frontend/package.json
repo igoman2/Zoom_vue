@@ -1,26 +1,63 @@
 {
-  "name": "frontend",
+  "name": "yalliyalli-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "net-build": "vue-cli-service build --mode development",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "test": "jest"
   },
   "dependencies": {
-    "core-js": "^3.1.2",
-    "vue": "^2.6.10",
-    "vue-material": "^1.0.0-beta-7",
-    "vue-socket.io": "^3.0.7"
+    "@tiptap/core": "^2.0.0-beta.44",
+    "@tiptap/extension-text-align": "^2.0.0-beta.10",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "dedent": "^0.7.0",
+    "quill-image-extend-module": "^1.1.2",
+    "socket.io": "^4.2.0",
+    "tiptap": "^1.32.2",
+    "tiptap-extensions": "^1.35.2",
+    "tiptap-vuetify": "^2.24.0",
+    "vue": "^2.6.11",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.2.0",
+    "vue-socket.io": "^3.0.10",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.4.0",
+    "@socket.io/admin-ui": "^0.2.0",
+    "express": "^4.17.1",
+    "localtunnel": "^2.0.1",
+    "pug": "^3.0.2",
+    "socket.io": "^4.2.0",
+    "ws": "^7.5.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0",
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "nodemon": "^2.0.12"
   },
   "eslintConfig": {
     "root": true,
@@ -29,20 +66,31 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/prettier"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+    },
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions"
-  ]
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest"
+  }
 }
