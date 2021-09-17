@@ -1,30 +1,25 @@
 <template>
-  <div>
-    <Header @drawer="setDrawer"></Header>
-    <div style="height: 100%">
+  <v-app>
+    <div class="main-content">
       <router-view />
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
-import Header from "../layouts/Header";
-// import Sidebar from "../layouts/Sidebar";
-
 export default {
   name: "Layout",
   components: {
-    // Sidebar,
-    Header,
+    // Header: () => import("@/layouts/Header"),
   },
   data: () => ({
     expandOnHover: false,
   }),
-  methods: {
-    setDrawer: function (flag) {
-      this.drawer = false;
-      this.drawer = flag;
-    },
-  },
+  methods: {},
 };
 </script>
+<style lang="scss">
+.main-content {
+  height: 100%;
+}
+</style>

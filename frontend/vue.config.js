@@ -1,10 +1,7 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
-    chainWebpack: (config) => {
-    config.module.rule("eslint").use("eslint-loader")
-      .tap((options) => {
-        options.fix = true; // auto-fix 옵션
-        return options;
-      });
+  chainWebpack: config => {
+      config.output.chunkFilename(`[id].[chunkhash:8].js`);
+      config.plugins.delete('prefetch');
   },
 };
