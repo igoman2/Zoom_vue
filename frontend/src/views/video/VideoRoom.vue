@@ -15,6 +15,35 @@
         width="400"
         height="400"
       ></video>
+      <div>
+        <h3>
+          {{ roomName }}
+        </h3>
+      </div>
+      <div>
+        {{ roomCount }}
+      </div>
+      <v-col cols="6">
+        <ul v-for="(item, index) in messages" :key="index">
+          {{
+            item
+          }}
+        </ul>
+        <v-row no-gutters>
+          <v-col cols="9" align="center">
+            <v-text-field
+              v-model="message"
+              label="메세지를 입력하세요"
+              required
+              @keyup.enter="send()"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="3" align="bottom">
+            <v-btn @click="send()"> Send </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+
       <option ref="cameraOption"></option>
     </div>
   </v-container>
@@ -31,6 +60,9 @@ export default {
     peerStream: null,
     myPeerConnection: null,
     hasStream: false,
+    messages: [],
+    message: "",
+    roomCount: 0,
   }),
 
   computed: {},
@@ -42,7 +74,9 @@ export default {
   mounted: async function () {
     this.$nextTick(() => {
       this.submit();
-      this.$socket.on("welcome", async () => {
+      this.$socket.on("welcome", async (user, newCount) => {
+        this.roomCount = newCount;
+        this.addMessage(`${user} arrived!`);
         const offer = await this.myPeerConnection.createOffer();
         this.myPeerConnection.setLocalDescription(offer);
         this.$socket.emit("offer", offer, this.roomName);
@@ -61,9 +95,22 @@ export default {
       this.$socket.on("ice", (ice) => {
         this.myPeerConnection.addIceCandidate(ice);
       });
+      this.$socket.on("new_message", this.addMessage);
+      this.$socket.on("bye", (left, newCount) => {
+        this.roomCount = newCount;
+        this.addMessage(`${left} left`);
+      });
+      this.$socket.on("room_change", (rooms) => {
+        if (rooms.length === 0) {
+          return;
+        }
+      });
     });
   },
 
+  beforeDestroy: function () {
+    console.log("destroyed");
+  },
   directives: {},
 
   methods: {
@@ -156,6 +203,15 @@ export default {
     },
     handleAddStream(data) {
       this.peerStream = data.stream;
+    },
+    addMessage(value) {
+      this.messages.push(value);
+    },
+    send() {
+      this.$socket.emit("new_message", this.message, this.roomName, () => {
+        this.addMessage(`You: ${this.message}`, () => {});
+        this.message = "";
+      });
     },
   },
 };
