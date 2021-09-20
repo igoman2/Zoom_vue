@@ -34,9 +34,9 @@ jobs:
 
       - name: move directory to frontent
         run: |
-          echo pwd
+          pwd
           cd frontend/
-          echo pwd
+          pwd
       - name: Install Dependencies
         run: npm install
 
