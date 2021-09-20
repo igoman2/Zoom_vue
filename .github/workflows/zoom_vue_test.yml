@@ -40,9 +40,9 @@ jobs:
           ls
       - name: Install Dependencies
         run: |
-        pwd
-        ls
-        npm install
+          pwd
+          ls
+          npm install
 
       - name: Build
         run: npm run build
