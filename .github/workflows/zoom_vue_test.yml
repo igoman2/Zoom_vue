@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,10 +31,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+
+      - name: move directory to frontent
+        run: cd frontend/
       - name: Install Dependencies
         run: npm install
-        
+
       - name: Build
         run: npm run build
 
