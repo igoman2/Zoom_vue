@@ -140,6 +140,10 @@ export default {
         },
       };
       try {
+        console.log("!!");
+        console.log(navigator.mediaDevices);
+        console.log(cameraConstraints);
+        console.log(initialConstraints);
         this.myStream = await navigator.mediaDevices.getUserMedia(
           deviceId ? cameraConstraints : initialConstraints
         );
