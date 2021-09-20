@@ -32,26 +32,27 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: move directory to frontent
-        run: |
-          pwd
-          cd frontend/
-          pwd
-          ls
       - name: Install Dependencies
         run: |
+          cd frontend/
           pwd
           ls
           npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          cd frontend/
+          pwd
+          ls
+          npm run build
 
       - name: Deploy to s3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
+          pwd
+          ls
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
