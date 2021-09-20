@@ -33,7 +33,10 @@ jobs:
           echo test, and deploy your project.
 
       - name: move directory to frontent
-        run: cd frontend/
+        run: |
+          echo pwd
+          cd frontend/
+          echo pwd
       - name: Install Dependencies
         run: npm install
 
