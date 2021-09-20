@@ -3,7 +3,7 @@ import axios from "axios";
 // axios 인스턴스 생성
 const instance = axios.create({
   //전역으로 사용할 baseURL과 시간 설정
-  baseURL: process.env.VUE_APP_API_URL,
+  baseURL: "http://127.0.0.1:3002",
   timeout: 5000,
 });
 

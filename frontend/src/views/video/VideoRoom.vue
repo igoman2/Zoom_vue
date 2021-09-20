@@ -171,6 +171,7 @@ export default {
       });
       this.myPeerConnection.addEventListener("icecandidate", this.handleIce);
       this.myPeerConnection.addEventListener("addstream", this.handleAddStream);
+      console.log(this.myStream);
       this.myStream
         .getTracks()
         .forEach((track) =>
