@@ -37,8 +37,12 @@ jobs:
           pwd
           cd frontend/
           pwd
+          ls
       - name: Install Dependencies
-        run: npm install
+        run: |
+        pwd
+        ls
+        npm install
 
       - name: Build
         run: npm run build
