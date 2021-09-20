@@ -1,7 +1,7 @@
 <template>
   <v-container fluid cols="12" align="center" class="flex">
     <div class="text-center mb-16 text-center">
-      <v-form v-model="valid" ref="form" lazy-validation action="/">
+      <v-form v-model="valid" ref="form" lazy-validation @submit.prevent="">
         <v-container>
           <v-row justify="center">
             <v-col cols="12" md="4">
@@ -10,6 +10,7 @@
                 label="Room name"
                 :rules="nameRules"
                 required
+                @keyup.enter="goto()"
               ></v-text-field>
             </v-col>
           </v-row>

@@ -142,8 +142,6 @@ export default {
       try {
         console.log("!!");
         console.log(navigator.mediaDevices);
-        console.log(cameraConstraints);
-        console.log(initialConstraints);
         this.myStream = await navigator.mediaDevices.getUserMedia(
           deviceId ? cameraConstraints : initialConstraints
         );
@@ -175,7 +173,6 @@ export default {
       });
       this.myPeerConnection.addEventListener("icecandidate", this.handleIce);
       this.myPeerConnection.addEventListener("addstream", this.handleAddStream);
-      console.log(this.myStream);
       this.myStream
         .getTracks()
         .forEach((track) =>
