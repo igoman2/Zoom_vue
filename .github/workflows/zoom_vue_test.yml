@@ -57,4 +57,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            dist s3://joon-han
+            dist s3://homeets.net

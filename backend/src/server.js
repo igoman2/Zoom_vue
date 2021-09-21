@@ -1,6 +1,7 @@
 import http from "http";
 import SocketIO from "socket.io";
 import express from "express";
+import { resolveNaptr } from "dns";
 const app = express();
 // app.set("view engine", "pug");
 // app.set("views", __dirname + "/views");
@@ -9,7 +10,9 @@ const app = express();
 // app.use("/public", express.static(__dirname + "/public"));
 // app.get("/", (_, res) => res.render("home"));
 // app.get("/*", (_, res) => res.redirect("/"));
-
+// app.get("/home", (_, res) => {
+//   res.send("hi");
+// });
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
@@ -71,5 +74,6 @@ wsServer.on("connection", (socket) => {
   });
 });
 
-const handleListen = () => console.log(`Listening on http://localhost:3001`);
-httpServer.listen(3001, handleListen);
+const port = 3002;
+const handleListen = () => console.log(`Listening on http://localhost:${port}`);
+httpServer.listen(port, handleListen);
