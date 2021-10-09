@@ -128,11 +128,11 @@ export default {
     },
     async getMedia(deviceId) {
       const initialConstraints = {
-        audio: true,
+        audio: false,
         video: { facingMode: "user" },
       };
       const cameraConstraints = {
-        audio: true,
+        audio: false,
         video: {
           deviceId: {
             exact: deviceId,

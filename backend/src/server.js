@@ -14,7 +14,11 @@ const app = express();
 //   res.send("hi");
 // });
 const httpServer = http.createServer(app);
-const wsServer = SocketIO(httpServer);
+const wsServer = SocketIO(httpServer, {
+  cors: {
+    origin: "*",
+  },
+});
 
 function publicRooms() {
   const {
@@ -42,6 +46,8 @@ wsServer.on("connection", (socket) => {
   //   console.log(`Socket Event: ${event}`);
   // });
   socket.on("join_room", (roomName) => {
+    console.log(roomName);
+    console.log("join");
     socket.join(roomName);
     socket.to(roomName).emit("welcome", socket.nickname, countRoom(roomName));
     wsServer.sockets.emit("room_change", publicRooms());
@@ -58,8 +64,10 @@ wsServer.on("connection", (socket) => {
     socket.to(roomName).emit("ice", ice);
   });
 
-  socket.on("new_message", (msg, room, done) => {
-    socket.to(room).emit("new_message", `${socket.nickname}: ${msg}`);
+  socket.on("new_message", (msg, room, user, done) => {
+    console.log(user);
+    // socket.to(room).emit("new_message", `${socket.nickname}: ${msg}`);
+    socket.to(room).emit("new_message", msg, user);
     done();
   });
 
