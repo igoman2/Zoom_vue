@@ -61,7 +61,9 @@ wsServer.on("connection", (socket) => {
   socket.on("ice", (ice, roomName) => {
     socket.to(roomName).emit("ice", ice);
   });
-
+  socket.on("left_room", (roomName, user) => {
+    socket.leave(roomName);
+  });
   socket.on("new_message", (msg, room, user, done) => {
     // socket.to(room).emit("new_message", `${socket.nickname}: ${msg}`);
     socket.to(room).emit("new_message", msg, user);

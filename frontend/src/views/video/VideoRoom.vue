@@ -109,7 +109,7 @@ export default {
   },
 
   beforeDestroy: function () {
-    console.log("destroyed");
+    this.$socket.emit("left", this.roomName, this.$socket.id);
   },
   directives: {},
 
@@ -210,7 +210,7 @@ export default {
       this.messages.push(value);
     },
     send() {
-      this.$socket.emit("new_message", this.message, this.roomName, () => {
+      this.$socket.emit("new_message", this.message, this.roomName, "", () => {
         this.addMessage(`You: ${this.message}`, () => {});
         this.message = "";
       });
