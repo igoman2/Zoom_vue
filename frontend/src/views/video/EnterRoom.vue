@@ -36,7 +36,6 @@ export default {
     ],
   }),
   computed: {},
-  created: function () {},
   methods: {
     goto() {
       if (this.$refs.form.validate(true)) {
