@@ -4,13 +4,9 @@
          xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
          xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://homeets.net/</loc>
-		<!-- <lastmod>2022-01-06</lastmod>
-		<changefreq>always</changefreq> -->
+		<loc>https://homeets.net/index.html</loc>
 	</url>
 	<url>
-		<loc>https://homeets.net/main</loc>
-		<!-- <lastmod>2022-01-06</lastmod>
-		<changefreq>always</changefreq> -->
+		<loc>https://homeets.net/main/index.html</loc>
 	</url>
 </urlset>
