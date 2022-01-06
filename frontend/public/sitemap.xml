@@ -5,8 +5,12 @@
          xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://homeets.net/index.html</loc>
+		<lastmod>2022-01-06</lastmod>
+		<changefreq>always</changefreq>
 	</url>
 	<url>
 		<loc>https://homeets.net/main/index.html</loc>
+		<lastmod>2022-01-06</lastmod>
+		<changefreq>always</changefreq>
 	</url>
 </urlset>
