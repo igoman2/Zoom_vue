@@ -12,7 +12,7 @@ const routes = [
     children: [
       {
         name: "MainPage",
-        path: "main",
+        path: "main/",
         component: () =>
           import(/* webpackChunkName: "MainPage" */ "@/views/MainPage"),
       },
