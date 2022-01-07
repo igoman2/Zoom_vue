@@ -13,6 +13,23 @@
 
 <script>
 export default {
+  metaInfo() {
+    return {
+      meta: [
+        {
+          vmid: "title",
+          name: "title",
+          content: "Meet people for any kind of conversation",
+        },
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "Joom is a place where people make rooms and meet others with webRCT, chatting. This is fake of Zoom. I want google to crawl this page",
+        },
+      ],
+    };
+  },
   name: "MainPage",
   components: {},
   data: () => ({

@@ -26,6 +26,7 @@
     "tiptap-extensions": "^1.35.2",
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.11",
+    "vue-meta": "^2.4.0",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",

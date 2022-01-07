@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import VueMeta from "vue-meta";
 
 // import plugin
 import { TiptapVuetifyPlugin } from "tiptap-vuetify";
@@ -26,6 +27,7 @@ Vue.use(TiptapVuetifyPlugin, {
   // optional, default to 'md' (default vuetify icons before v2.0.0)
   iconsGroup: "mdi",
 });
+Vue.use(VueMeta);
 
 new Vue({
   router,
