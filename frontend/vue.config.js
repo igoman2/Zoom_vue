@@ -14,6 +14,7 @@ const productionPlugins = [
 
 module.exports = {
   lintOnSave: false,
+  productionSourceMap: false,
   transpileDependencies: ["vuetify"],
   chainWebpack: (config) => {
     config.output.chunkFilename(`[id].[chunkhash:8].js`);
