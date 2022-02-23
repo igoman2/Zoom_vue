@@ -12,7 +12,12 @@ import "vuetify/dist/vuetify.min.css";
 import io from "socket.io-client";
 // const socket = io("http://localhost:3002");
 const socket = io(
-  "http://ec2-54-180-80-35.ap-northeast-2.compute.amazonaws.com:3002/"
+  "ec2-54-180-80-35.ap-northeast-2.compute.amazonaws.com:3002"
+  // {
+  //   cors: {
+  //     origin: "*",
+  //   },
+  // }
 );
 Vue.prototype.$socket = socket;
 Vue.config.productionTip = false;
