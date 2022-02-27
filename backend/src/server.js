@@ -1,7 +1,6 @@
 import http from "http";
 import SocketIO from "socket.io";
 import express from "express";
-import { resolveNaptr } from "dns";
 const app = express();
 // app.set("view engine", "pug");
 // app.set("views", __dirname + "/views");
